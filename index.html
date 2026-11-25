@@ -3,107 +3,123 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#f6f7ef">
-  <meta name="description" content="매일 신선한 재료로 만드는 건강한 샐러드, 그린테이블">
-  <title>그린테이블 | 오늘을 가볍고 싱그럽게</title>
+  <meta name="theme-color" content="#e4f0df">
+  <meta name="description" content="좋은 재료로 만드는 오늘의 건강한 한 끼, 그린테이블">
+  <title>green table — GOOD FOOD, GOOD MOOD</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap');
-
     :root {
-      --green: #245c3b;
-      --green-dark: #193f2a;
-      --lime: #d7ed83;
-      --cream: #f6f7ef;
-      --ink: #202a22;
-      --muted: #788078;
-      --line: #e7e9df;
+      --green-light: #e4f0df;
+      --ivory: #f7f6ef;
+      --green: #174d3b;
+      --green-deep: #10392c;
+      --black: #111;
+      --gray: #777;
       --white: #fff;
-      --font: "DM Sans", "Noto Sans KR", sans-serif;
+      --line: rgba(23, 77, 59, .18);
+      --font: "Arial", "Noto Sans KR", "Malgun Gothic", sans-serif;
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      color: var(--ink);
-      background: var(--cream);
+      color: var(--black);
+      background: var(--ivory);
       font-family: var(--font);
       -webkit-font-smoothing: antialiased;
     }
+    body, button, a { -webkit-tap-highlight-color: transparent; }
     a { color: inherit; text-decoration: none; }
-    button, input { font: inherit; }
-    button { cursor: pointer; }
-    .wrap { width: min(1160px, calc(100% - 48px)); margin: 0 auto; }
-
-    .top-note {
-      padding: 9px 16px;
-      color: #f6f7ef;
-      background: var(--green-dark);
-      text-align: center;
-      font-size: 12px;
-      letter-spacing: .04em;
-    }
-    .top-note strong { color: var(--lime); font-weight: 700; }
-    header {
-      position: sticky;
-      z-index: 10;
-      top: 0;
-      background: rgba(246, 247, 239, .93);
-      border-bottom: 1px solid rgba(36, 92, 59, .08);
-      backdrop-filter: blur(14px);
-    }
-    .nav {
-      height: 76px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .brand {
+    button { color: inherit; font: inherit; }
+    img { display: block; max-width: 100%; }
+    .wrap { width: min(1360px, calc(100% - 96px)); margin: 0 auto; }
+    .kicker {
       display: inline-flex;
       align-items: center;
       gap: 10px;
       color: var(--green);
-      font-size: 20px;
-      font-weight: 800;
-      letter-spacing: -.06em;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
     }
-    .brand-mark {
-      width: 31px;
-      height: 31px;
-      display: grid;
-      place-items: center;
-      color: var(--green-dark);
-      background: var(--lime);
-      border-radius: 50% 50% 50% 8px;
-      font-size: 17px;
+    .kicker::before { width: 24px; height: 1px; background: currentColor; content: ""; }
+
+    .site-header {
+      position: sticky;
+      z-index: 20;
+      top: 0;
+      background: rgba(247, 246, 239, .94);
+      border-bottom: 1px solid rgba(23, 77, 59, .1);
+      backdrop-filter: blur(16px);
     }
-    .nav-links { display: flex; align-items: center; gap: 34px; }
-    .nav-links a { color: #59635a; font-size: 13px; font-weight: 600; transition: color .2s; }
-    .nav-links a:hover { color: var(--green); }
-    .nav-right { display: flex; align-items: center; gap: 12px; }
-    .cart-button {
+    .nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+    .brand {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 10px 15px;
+      gap: 9px;
+      flex: 0 0 auto;
       color: var(--green);
-      background: transparent;
-      border: 1px solid #cbd4c8;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 700;
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -.08em;
     }
-    .cart-count {
+    .brand-symbol {
+      width: 27px;
+      height: 27px;
       display: grid;
-      min-width: 20px;
-      height: 20px;
       place-items: center;
-      padding: 0 5px;
-      color: var(--white);
+      color: var(--ivory);
       background: var(--green);
-      border-radius: 50%;
-      font-size: 10px;
+      border-radius: 50% 50% 50% 4px;
+      font-size: 16px;
     }
+    .nav-links { display: flex; align-items: center; gap: clamp(18px, 2.8vw, 42px); }
+    .nav-links a {
+      position: relative;
+      padding: 9px 0;
+      color: #414841;
+      font-size: 12px;
+      font-weight: 600;
+      transition: color .2s ease;
+    }
+    .nav-links a::after {
+      position: absolute;
+      right: 0;
+      bottom: 3px;
+      left: 0;
+      height: 1px;
+      background: var(--green);
+      content: "";
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .25s ease;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--green); }
+    .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
+    .nav-cta {
+      display: inline-flex;
+      min-height: 40px;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 0 17px;
+      color: var(--ivory);
+      background: var(--green);
+      border: 1px solid var(--green);
+      border-radius: 99px;
+      font-size: 11px;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: background .2s, color .2s;
+    }
+    .nav-cta:hover { color: var(--green); background: transparent; }
     .menu-toggle {
       display: none;
       width: 42px;
@@ -112,526 +128,530 @@
       background: transparent;
       border: 1px solid var(--line);
       border-radius: 50%;
-      font-size: 19px;
+      font-size: 20px;
     }
 
-    .hero { padding: 50px 0 74px; }
-    .hero-grid {
-      min-height: 510px;
-      display: grid;
-      grid-template-columns: 1fr 1.02fr;
-      align-items: center;
-      gap: 40px;
+    .hero {
+      position: relative;
+      min-height: min(780px, calc(100svh - 78px));
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      color: var(--white);
+      background: #64734b;
     }
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--green);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .16em;
+    .hero-image, .hero-shade { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .hero-image { object-fit: cover; object-position: center 54%; animation: hero-zoom 12s ease-out both; }
+    .hero-shade { background: linear-gradient(90deg, rgba(14, 33, 23, .62), rgba(14, 33, 23, .16) 70%), linear-gradient(0deg, rgba(14, 33, 23, .3), transparent 55%); }
+    .hero-content { position: relative; z-index: 1; padding: 90px 0 83px; }
+    .hero .kicker { color: #d7edc4; }
+    .hero-title {
+      margin: 25px 0 22px;
+      font-size: clamp(66px, 11vw, 160px);
+      font-weight: 800;
+      letter-spacing: -.105em;
+      line-height: .78;
       text-transform: uppercase;
     }
-    .eyebrow::before { width: 20px; height: 1px; background: currentColor; content: ""; }
-    h1 {
-      margin: 19px 0 20px;
-      color: var(--green-dark);
-      font-size: clamp(42px, 5vw, 66px);
-      font-weight: 700;
-      letter-spacing: -.075em;
-      line-height: 1.18;
-    }
-    h1 em { color: #81a948; font-style: normal; }
-    .hero-copy {
-      max-width: 420px;
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.9;
-      word-break: keep-all;
-    }
-    .hero-actions { display: flex; align-items: center; gap: 20px; margin-top: 30px; }
-    .primary-button {
+    .hero-title span { display: block; }
+    .hero-title span:last-child { padding-left: .72em; }
+    .hero-bottom { display: flex; align-items: end; justify-content: space-between; gap: 30px; }
+    .hero-copy { max-width: 410px; margin: 0; color: rgba(255,255,255,.82); font-size: 14px; line-height: 1.9; word-break: keep-all; }
+    .button-light {
       display: inline-flex;
       min-height: 48px;
       align-items: center;
       justify-content: center;
-      gap: 12px;
-      padding: 0 22px;
-      color: var(--white);
-      background: var(--green);
-      border: 0;
-      border-radius: 999px;
-      font-size: 13px;
+      gap: 22px;
+      padding: 0 20px;
+      color: var(--green);
+      background: var(--ivory);
+      border: 1px solid var(--ivory);
+      border-radius: 99px;
+      font-size: 12px;
       font-weight: 700;
-      transition: background .2s, transform .2s;
+      white-space: nowrap;
+      transition: color .2s, background .2s, transform .2s;
     }
-    .primary-button:hover { background: var(--green-dark); transform: translateY(-2px); }
-    .text-link { color: var(--green); font-size: 12px; font-weight: 700; }
-    .hero-footnote { display: flex; align-items: center; gap: 9px; margin-top: 38px; color: #7a8378; font-size: 11px; }
-    .hero-footnote span { color: #8daa50; font-size: 16px; }
-    .hero-visual {
-      position: relative;
-      min-height: 480px;
-      background: #dce5ca;
-      border-radius: 48% 48% 12px 12px;
+    .button-light:hover { color: var(--ivory); background: transparent; transform: translateY(-2px); }
+    .hero-index { position: absolute; right: 0; bottom: 34px; color: rgba(255,255,255,.75); font-size: 10px; letter-spacing: .16em; }
+    @keyframes hero-zoom { from { transform: scale(1.06); } to { transform: scale(1); } }
+    .hero .hero-content > * { animation: fade-up .8s both; }
+    .hero .hero-content > *:nth-child(2) { animation-delay: .12s; }
+    .hero .hero-content > *:nth-child(3) { animation-delay: .22s; }
+    @keyframes fade-up { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+
+    .ticker {
       overflow: hidden;
+      padding: 17px 0;
+      color: var(--ivory);
+      background: var(--green);
     }
-    .hero-visual img { width: 100%; height: 100%; position: absolute; inset: 0; object-fit: cover; }
-    .image-label {
-      position: absolute;
-      right: 22px;
-      bottom: 22px;
-      padding: 14px 18px;
-      color: var(--green-dark);
-      background: rgba(255, 255, 255, .9);
-      border-radius: 12px;
-      box-shadow: 0 8px 26px rgba(27, 55, 33, .1);
-    }
-    .image-label small { display: block; margin-bottom: 4px; color: #7c867c; font-size: 9px; letter-spacing: .12em; }
-    .image-label strong { font-size: 13px; }
-    .floating-stamp {
-      position: absolute;
-      top: 48px;
-      left: -21px;
-      width: 95px;
-      height: 95px;
-      display: grid;
-      place-content: center;
-      color: var(--green-dark);
-      background: var(--lime);
-      border-radius: 50%;
-      text-align: center;
-      transform: rotate(-12deg);
-    }
-    .floating-stamp strong { font-size: 21px; line-height: 1; }
-    .floating-stamp span { margin-top: 5px; font-size: 9px; font-weight: 700; letter-spacing: .08em; }
-
-    .perks { padding: 27px 0; background: #e9eddf; }
-    .perk-row { display: grid; grid-template-columns: repeat(3, 1fr); }
-    .perk {
+    .ticker-track {
+      width: max-content;
       display: flex;
+      gap: 34px;
       align-items: center;
-      justify-content: center;
-      gap: 12px;
-      padding: 5px 16px;
-      border-right: 1px solid #d5dccd;
+      animation: ticker 30s linear infinite;
     }
-    .perk:last-child { border: 0; }
-    .perk-icon { font-size: 21px; }
-    .perk strong { display: block; color: var(--green-dark); font-size: 12px; }
-    .perk span:last-child { display: block; margin-top: 3px; color: #7b8479; font-size: 10px; }
+    .ticker-track span { font-size: 11px; font-weight: 700; letter-spacing: .17em; }
+    .ticker-track b { color: #cfe4a9; font-size: 17px; }
+    @keyframes ticker { to { transform: translateX(-50%); } }
 
-    section { scroll-margin-top: 90px; }
-    .menu-section { padding: 100px 0 104px; }
-    .section-heading {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 20px;
-      margin-bottom: 30px;
+    .best-section { padding: 112px 0 120px; background: var(--green-light); }
+    .section-top { display: flex; align-items: end; justify-content: space-between; gap: 25px; margin-bottom: 42px; }
+    .section-title {
+      margin: 16px 0 9px;
+      color: var(--green);
+      font-size: clamp(58px, 9.2vw, 126px);
+      font-weight: 800;
+      letter-spacing: -.105em;
+      line-height: .86;
     }
-    .section-heading h2 {
-      margin: 10px 0 0;
-      color: var(--green-dark);
-      font-size: clamp(30px, 3.4vw, 42px);
-      letter-spacing: -.07em;
-    }
-    .section-heading p { max-width: 310px; margin: 0 0 4px; color: var(--muted); font-size: 12px; line-height: 1.8; }
-    .filters { display: flex; gap: 8px; margin-bottom: 24px; }
-    .filter-button {
-      padding: 9px 17px;
-      color: #737d73;
+    .section-subtitle { margin: 14px 0 0; color: #58675c; font-size: 13px; line-height: 1.8; word-break: keep-all; }
+    .slider-controls { display: flex; gap: 9px; flex: 0 0 auto; padding-bottom: 4px; }
+    .slider-button {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      color: var(--green);
       background: transparent;
-      border: 1px solid #dfe3d8;
-      border-radius: 999px;
-      font-size: 11px;
-      font-weight: 600;
-      transition: .2s;
+      border: 1px solid rgba(23, 77, 59, .4);
+      border-radius: 50%;
+      font-size: 19px;
+      transition: color .2s, background .2s;
     }
-    .filter-button:hover, .filter-button.active { color: var(--white); background: var(--green); border-color: var(--green); }
-    .menu-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
-    .menu-card {
-      min-width: 0;
-      padding: 10px 10px 17px;
-      background: #fff;
-      border: 1px solid #eff0e9;
-      border-radius: 13px;
-      transition: transform .25s, box-shadow .25s;
+    .slider-button:hover { color: var(--white); background: var(--green); }
+    .best-track {
+      display: grid;
+      justify-content: start;
+      grid-auto-columns: clamp(290px, 30vw, 430px);
+      grid-auto-flow: column;
+      gap: 20px;
+      overflow-x: auto;
+      padding: 0 0 12px;
+      scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      touch-action: pan-x;
+      cursor: grab;
     }
-    .menu-card:hover { box-shadow: 0 16px 35px rgba(38, 63, 39, .09); transform: translateY(-5px); }
-    .menu-card[hidden] { display: none; }
-    .food-photo { position: relative; height: 185px; overflow: hidden; background: #e8ebdd; border-radius: 8px; }
-    .food-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
-    .menu-card:hover .food-photo img { transform: scale(1.05); }
-    .badge {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      padding: 6px 9px;
-      color: var(--green);
-      background: rgba(255, 255, 255, .92);
-      border-radius: 999px;
-      font-size: 9px;
-      font-weight: 700;
+    .best-track::-webkit-scrollbar { display: none; }
+    .best-track.dragging { cursor: grabbing; scroll-behavior: auto; scroll-snap-type: none; }
+    .best-card { min-width: 0; scroll-snap-align: start; }
+    .best-photo {
+      position: relative;
+      height: clamp(300px, 38vw, 470px);
+      overflow: hidden;
+      background: #c8d3be;
     }
-    .food-info { padding: 14px 3px 0; }
-    .food-title-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-    .food-title-row h3 { margin: 0; color: var(--green-dark); font-size: 15px; letter-spacing: -.04em; }
-    .food-title-row strong { color: var(--green); font-size: 12px; white-space: nowrap; }
-    .food-info p { min-height: 36px; margin: 8px 0 13px; color: #838b82; font-size: 10px; line-height: 1.7; word-break: keep-all; }
-    .add-button {
+    .best-photo img, .menu-photo img, .about-photo img, .story-photo img {
       width: 100%;
-      padding: 9px;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .65s cubic-bezier(.2,.7,.2,1);
+    }
+    .best-card:hover img, .menu-card:hover img { transform: scale(1.045); }
+    .best-number {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      display: grid;
+      width: 38px;
+      height: 38px;
+      place-items: center;
       color: var(--green);
-      background: #f2f5eb;
-      border: 0;
-      border-radius: 6px;
+      background: var(--ivory);
+      border-radius: 50%;
       font-size: 10px;
       font-weight: 700;
-      transition: .2s;
     }
-    .add-button:hover { color: white; background: var(--green); }
+    .best-info { display: flex; align-items: start; justify-content: space-between; gap: 12px; padding: 17px 1px 0; }
+    .best-info h3, .menu-info h3 { margin: 0; color: var(--green); font-size: 18px; letter-spacing: -.05em; }
+    .best-info p, .menu-info p { margin: 7px 0 0; color: var(--gray); font-size: 11px; line-height: 1.7; word-break: keep-all; }
+    .best-price, .menu-price { padding-top: 3px; color: var(--green); font-size: 12px; font-weight: 700; white-space: nowrap; }
+    .drag-note { display: flex; align-items: center; gap: 9px; margin: 18px 0 0; color: #6d7d70; font-size: 10px; letter-spacing: .03em; }
+    .drag-note span { font-size: 15px; }
 
-    .story { padding: 80px 0; color: var(--white); background: var(--green-dark); }
-    .story-inner { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 70px; }
-    .story-photo { height: 340px; overflow: hidden; border-radius: 10px 90px 10px 10px; }
-    .story-photo img { width: 100%; height: 100%; object-fit: cover; }
-    .story .eyebrow { color: var(--lime); }
-    .story h2 { margin: 14px 0 17px; font-size: clamp(30px, 3.4vw, 42px); letter-spacing: -.07em; line-height: 1.32; }
-    .story-copy { max-width: 430px; color: #bdc9bc; font-size: 12px; line-height: 2; word-break: keep-all; }
-    .story .text-link { display: inline-block; margin-top: 17px; color: var(--lime); }
+    .menu-section { padding: 112px 0 120px; }
+    .menu-section .section-top { margin-bottom: 38px; }
+    .menu-section .section-title { color: var(--black); font-size: clamp(48px, 7vw, 88px); }
+    .menu-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px 18px; }
+    .menu-card { min-width: 0; }
+    .menu-photo { height: clamp(190px, 23vw, 310px); overflow: hidden; background: #e4e6d9; }
+    .menu-info { display: flex; align-items: start; justify-content: space-between; gap: 10px; padding-top: 14px; }
+    .menu-info h3 { color: var(--black); font-size: 15px; }
+    .menu-info p { font-size: 10px; }
+    .menu-price { color: var(--gray); font-size: 11px; }
+    .menu-category { display: block; margin-top: 8px; color: var(--green); font-size: 9px; font-weight: 700; letter-spacing: .12em; }
 
-    .newsletter { padding: 75px 0; }
-    .newsletter-box {
+    .about-section { padding: 30px 0 125px; }
+    .about-layout { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(300px, .75fr); align-items: center; gap: clamp(45px, 9vw, 140px); }
+    .about-photo { height: clamp(380px, 54vw, 650px); overflow: hidden; background: #c9d6c3; }
+    .about-copy { padding: 30px 0; }
+    .about-title {
+      margin: 15px 0 24px;
+      color: var(--green);
+      font-size: clamp(48px, 7vw, 94px);
+      font-weight: 800;
+      letter-spacing: -.105em;
+      line-height: .88;
+    }
+    .about-title span { display: block; }
+    .about-text { max-width: 390px; color: #606760; font-size: 13px; line-height: 2; word-break: keep-all; }
+    .about-points { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 27px; }
+    .about-points span { padding: 9px 12px; color: var(--green); border: 1px solid var(--line); border-radius: 99px; font-size: 10px; font-weight: 600; }
+    .inline-link { display: inline-flex; align-items: center; gap: 15px; margin-top: 30px; padding-bottom: 8px; color: var(--green); border-bottom: 1px solid var(--green); font-size: 11px; font-weight: 700; }
+
+    .story-section {
+      position: relative;
+      min-height: 610px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 30px;
-      padding: 35px 42px;
-      background: #e9eddf;
-      border-radius: 12px;
+      overflow: hidden;
+      color: var(--white);
+      background: #536345;
     }
-    .newsletter-box h2 { margin: 0 0 7px; color: var(--green-dark); font-size: 22px; letter-spacing: -.06em; }
-    .newsletter-box p { margin: 0; color: #778075; font-size: 11px; }
-    .subscribe-form { display: flex; width: min(390px, 100%); padding: 5px; background: white; border: 1px solid #dce2d5; border-radius: 999px; }
-    .subscribe-form input { width: 100%; min-width: 0; padding: 0 14px; color: var(--ink); background: transparent; border: 0; outline: 0; font-size: 11px; }
-    .subscribe-form button { padding: 11px 17px; color: white; background: var(--green); border: 0; border-radius: 999px; font-size: 10px; font-weight: 700; white-space: nowrap; }
-    .subscribe-message { min-height: 15px; margin-top: 7px; color: var(--green); font-size: 10px; }
+    .story-photo, .story-shade { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .story-photo { object-fit: cover; object-position: center 52%; }
+    .story-shade { background: linear-gradient(90deg, rgba(14, 36, 24, .65), rgba(14, 36, 24, .08) 85%), rgba(14,36,24,.12); }
+    .story-content { position: relative; z-index: 1; padding: 100px 0; }
+    .story-content .kicker { color: #d6e5c4; }
+    .story-title { max-width: 850px; margin: 24px 0 20px; font-size: clamp(44px, 7.3vw, 96px); font-weight: 700; letter-spacing: -.085em; line-height: 1.04; word-break: keep-all; }
+    .story-description { max-width: 420px; margin: 0; color: rgba(255,255,255,.82); font-size: 13px; line-height: 1.9; word-break: keep-all; }
+    .story-content .button-light { margin-top: 29px; }
 
-    footer { padding: 27px 0; color: #b7c3b6; background: #142f20; }
-    .footer-row { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-    .footer-brand { color: white; font-size: 16px; font-weight: 800; letter-spacing: -.05em; }
-    .footer-info { margin-top: 6px; font-size: 9px; line-height: 1.8; }
-    .footer-right { font-size: 10px; text-align: right; line-height: 1.8; }
-    .toast {
-      position: fixed;
-      z-index: 20;
-      right: 24px;
-      bottom: 24px;
-      padding: 13px 18px;
-      color: white;
-      background: var(--green-dark);
-      border-radius: 8px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, .16);
-      font-size: 12px;
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(10px);
-      transition: .25s;
-    }
-    .toast.show { opacity: 1; transform: translateY(0); }
+    .visit-section { padding: 112px 0; background: var(--green-light); }
+    .visit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 36px; }
+    .visit-card { min-height: 290px; padding: clamp(26px, 4vw, 52px); background: var(--ivory); }
+    .visit-card.dark { color: var(--ivory); background: var(--green); }
+    .visit-label { color: #768178; font-size: 10px; font-weight: 700; letter-spacing: .14em; }
+    .dark .visit-label { color: #c1d0c2; }
+    .visit-card h3 { margin: 30px 0 13px; color: var(--green); font-size: clamp(27px, 3.2vw, 40px); letter-spacing: -.07em; }
+    .visit-card.dark h3 { color: var(--ivory); }
+    .visit-card p { margin: 0; color: var(--gray); font-size: 12px; line-height: 1.9; word-break: keep-all; }
+    .visit-card.dark p { color: #ced8ce; }
+    .visit-card .inline-link { margin-top: 28px; }
+    .visit-card.dark .inline-link { color: var(--ivory); border-color: rgba(255,255,255,.65); }
 
-    @media (max-width: 900px) {
-      .hero-grid { gap: 25px; }
-      .hero-visual { min-height: 420px; }
-      .menu-grid { grid-template-columns: repeat(2, 1fr); }
-      .food-photo { height: 220px; }
-      .story-inner { gap: 35px; }
+    .contact-section { padding: 94px 0 100px; text-align: center; }
+    .contact-section h2 { margin: 15px 0 10px; color: var(--green); font-size: clamp(38px, 6vw, 72px); letter-spacing: -.09em; }
+    .contact-section p { margin: 0; color: var(--gray); font-size: 12px; line-height: 1.8; }
+    .contact-links { display: flex; justify-content: center; gap: 10px; margin-top: 26px; }
+    .contact-links a { min-width: 132px; padding: 13px 18px; color: var(--green); border: 1px solid var(--line); border-radius: 99px; font-size: 11px; font-weight: 700; transition: color .2s, background .2s; }
+    .contact-links a:hover { color: var(--ivory); background: var(--green); }
+
+    .site-footer { padding: 34px 0 26px; color: #d9e0d8; background: #102f25; }
+    .footer-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 30px; padding-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,.16); }
+    .footer-brand { color: var(--ivory); font-size: 22px; font-weight: 800; letter-spacing: -.08em; }
+    .footer-company { margin-top: 13px; color: #afbeb2; font-size: 10px; line-height: 1.9; }
+    .footer-nav { display: flex; flex-wrap: wrap; gap: 18px; color: #e5e9e3; font-size: 10px; }
+    .footer-nav a:hover { color: #cfe4a9; }
+    .policy-list { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 18px; }
+    .policy-list details { position: relative; font-size: 10px; }
+    .policy-list summary { cursor: pointer; }
+    .policy-list details p { max-width: 340px; margin: 8px 0 0; color: #b7c5b9; font-size: 9px; line-height: 1.7; }
+    .footer-bottom { display: flex; justify-content: space-between; gap: 20px; padding-top: 18px; color: #a7b5a9; font-size: 9px; line-height: 1.8; }
+    .operator { color: #e7ece5; font-weight: 600; }
+    .social-link { color: #e7ece5; }
+
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
     }
-    @media (max-width: 640px) {
-      .wrap { width: min(100% - 36px, 480px); }
-      .top-note { font-size: 10px; }
-      .nav { height: 66px; }
+
+    @media (max-width: 980px) {
+      .wrap { width: min(100% - 56px, 760px); }
+      .nav { min-height: 70px; gap: 18px; }
+      .nav-links { gap: 17px; }
+      .nav-links a { font-size: 11px; }
+      .nav-cta { padding: 0 12px; font-size: 10px; }
+      .best-track { grid-auto-columns: clamp(280px, 42vw, 380px); }
+      .menu-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 16px; }
+      .menu-photo { height: clamp(240px, 38vw, 350px); }
+      .about-layout { gap: 46px; }
+    }
+    @media (max-width: 680px) {
+      .wrap { width: calc(100% - 38px); }
+      .nav { min-height: 64px; }
       .brand { font-size: 18px; }
-      .menu-toggle { display: block; }
+      .brand-symbol { width: 25px; height: 25px; }
+      .menu-toggle { display: grid; place-items: center; }
+      .nav-cta { display: none; }
       .nav-links {
         position: absolute;
-        top: 65px;
+        top: 63px;
         right: 0;
         left: 0;
         display: none;
-        flex-direction: column;
         align-items: stretch;
         gap: 0;
-        padding: 8px 18px 14px;
-        background: var(--cream);
+        padding: 8px 19px 16px;
+        background: var(--ivory);
         border-bottom: 1px solid var(--line);
       }
-      .nav-links.open { display: flex; }
-      .nav-links a { padding: 12px 5px; }
-      .cart-button { padding: 8px 10px; font-size: 10px; }
-      .hero { padding: 32px 0 48px; }
-      .hero-grid { grid-template-columns: 1fr; gap: 28px; }
-      .hero-copy { font-size: 12px; }
-      .hero-visual { min-height: 360px; margin: 0 10px 0 14px; border-radius: 48% 48% 10px 10px; }
-      .floating-stamp { left: -13px; width: 78px; height: 78px; }
-      .floating-stamp strong { font-size: 17px; }
-      .perk-row { grid-template-columns: 1fr; gap: 16px; }
-      .perk { justify-content: flex-start; padding-left: 12%; border: 0; }
-      .menu-section { padding: 70px 0; }
-      .section-heading { align-items: flex-start; flex-direction: column; gap: 10px; }
-      .section-heading p { font-size: 11px; }
-      .filters { overflow-x: auto; padding-bottom: 3px; }
-      .filter-button { flex: 0 0 auto; }
-      .menu-grid { gap: 10px; }
-      .menu-card { padding: 7px 7px 12px; }
-      .food-photo { height: 145px; }
-      .food-title-row h3 { font-size: 12px; }
-      .food-title-row strong { font-size: 10px; }
-      .food-info p { min-height: 52px; font-size: 9px; }
-      .badge { top: 6px; left: 6px; padding: 5px 7px; font-size: 8px; }
-      .story { padding: 58px 0; }
-      .story-inner { grid-template-columns: 1fr; gap: 26px; }
-      .story-photo { height: 250px; order: 2; }
-      .story-copy { font-size: 11px; }
-      .newsletter { padding: 50px 0; }
-      .newsletter-box { align-items: stretch; flex-direction: column; gap: 20px; padding: 26px 20px; }
-      .newsletter-box h2 { font-size: 19px; }
-      .footer-row { align-items: flex-start; flex-direction: column; }
-      .footer-right { text-align: left; }
-      .toast { right: 18px; bottom: 18px; left: 18px; text-align: center; }
+      .nav-links.open { display: flex; flex-direction: column; }
+      .nav-links a { padding: 13px 2px; font-size: 13px; }
+      .nav-links a::after { display: none; }
+      .hero { min-height: min(720px, calc(100svh - 64px)); }
+      .hero-image { object-position: 58% center; }
+      .hero-shade { background: linear-gradient(90deg, rgba(14,33,23,.5), rgba(14,33,23,.08)), linear-gradient(0deg, rgba(14,33,23,.42), transparent 70%); }
+      .hero-content { padding: 75px 0 78px; }
+      .hero-title { margin: 20px 0 18px; font-size: clamp(60px, 15vw, 100px); }
+      .hero-bottom { align-items: flex-start; flex-direction: column; gap: 22px; }
+      .hero-copy { max-width: 350px; font-size: 12px; }
+      .hero-index { bottom: 22px; }
+      .ticker { padding: 14px 0; }
+      .ticker-track { gap: 23px; }
+      .ticker-track span { font-size: 9px; }
+      .best-section, .menu-section, .visit-section { padding: 74px 0 80px; }
+      .section-top { align-items: flex-end; gap: 14px; margin-bottom: 27px; }
+      .section-title { margin-top: 13px; font-size: clamp(56px, 14vw, 88px); }
+      .section-subtitle { max-width: 280px; font-size: 11px; }
+      .slider-button { width: 40px; height: 40px; font-size: 16px; }
+      .slider-controls { gap: 6px; }
+      .best-track { grid-auto-columns: 82vw; gap: 13px; margin-right: -19px; padding-right: 19px; }
+      .best-photo { height: 370px; }
+      .best-info h3 { font-size: 16px; }
+      .best-info p { font-size: 10px; }
+      .drag-note { margin-top: 14px; }
+      .menu-section .section-top { align-items: flex-start; flex-direction: column; }
+      .menu-section .section-title { font-size: clamp(44px, 11vw, 68px); }
+      .menu-grid { gap: 25px 11px; }
+      .menu-photo { height: clamp(165px, 45vw, 245px); }
+      .menu-info { display: block; padding-top: 11px; }
+      .menu-info h3 { font-size: 13px; }
+      .menu-info p { min-height: 33px; margin-top: 6px; font-size: 9px; }
+      .menu-price { display: block; margin-top: 7px; padding: 0; }
+      .menu-category { font-size: 8px; }
+      .about-section { padding: 5px 0 78px; }
+      .about-layout { grid-template-columns: 1fr; gap: 24px; }
+      .about-photo { height: 370px; }
+      .about-copy { padding: 0; }
+      .about-title { font-size: clamp(56px, 14vw, 85px); }
+      .about-text { font-size: 12px; }
+      .story-section { min-height: 550px; }
+      .story-photo { object-position: 57% center; }
+      .story-content { padding: 75px 0; }
+      .story-title { font-size: clamp(44px, 11vw, 66px); }
+      .story-description { font-size: 11px; }
+      .visit-grid { grid-template-columns: 1fr; gap: 10px; margin-top: 25px; }
+      .visit-card { min-height: 250px; padding: 27px; }
+      .visit-card h3 { margin-top: 25px; }
+      .contact-section { padding: 72px 0 78px; }
+      .contact-section p { font-size: 11px; }
+      .contact-links { flex-wrap: wrap; }
+      .contact-links a { min-width: 120px; }
+      .footer-top { flex-direction: column; }
+      .footer-nav { gap: 13px; }
+      .footer-bottom { flex-direction: column; gap: 8px; }
     }
   </style>
 </head>
 <body>
-  <div class="top-note">오늘도 신선하게 준비했어요 <strong>· 매일 아침 시장에서 고른 제철 채소</strong></div>
-  <header>
+  <header class="site-header">
     <div class="wrap nav">
       <a class="brand" href="#home" aria-label="그린테이블 홈">
-        <span class="brand-mark">✳</span> green table
+        <span class="brand-symbol">✳</span> green table
       </a>
       <nav class="nav-links" id="navLinks" aria-label="주요 메뉴">
-        <a href="#menu">메뉴</a>
-        <a href="#story">우리 이야기</a>
-        <a href="#subscribe">소식 받기</a>
+        <a href="#about">브랜드 소개</a>
+        <a href="#menu">메뉴 소개</a>
+        <a href="#stores">매장 안내</a>
+        <a href="#franchise">창업 안내</a>
+        <a href="#contact">고객센터</a>
       </nav>
-      <div class="nav-right">
-        <button class="cart-button" type="button" aria-label="장바구니, 0개">
-          장바구니 <span class="cart-count" id="cartCount">0</span>
-        </button>
-        <button class="menu-toggle" id="menuToggle" type="button" aria-label="메뉴 열기" aria-expanded="false">☰</button>
-      </div>
+      <a class="nav-cta" href="tel:01012345678">매장 문의 <span aria-hidden="true">↗</span></a>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="메뉴 열기" aria-expanded="false">☰</button>
     </div>
   </header>
 
   <main>
     <section class="hero" id="home">
-      <div class="wrap hero-grid">
-        <div class="hero-content">
-          <span class="eyebrow">Fresh, feel good</span>
-          <h1>오늘을 더<br><em>싱그럽게</em> 먹는 법</h1>
-          <p class="hero-copy">좋은 재료가 주는 기분 좋은 에너지. 매일 아침 손질한 채소와 정성껏 만든 드레싱으로 당신의 한 끼를 가볍고 든든하게 채워요.</p>
-          <div class="hero-actions">
-            <a class="primary-button" href="#menu">메뉴 둘러보기 <span aria-hidden="true">→</span></a>
-            <a class="text-link" href="#story">그린테이블 이야기</a>
-          </div>
-          <div class="hero-footnote"><span>✳</span> 오늘 수확한 제철 채소로 신선하게</div>
-        </div>
-        <div class="hero-visual">
-          <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&amp;fit=crop&amp;w=1100&amp;q=85" alt="신선한 채소와 과일이 담긴 컬러풀한 샐러드">
-          <div class="floating-stamp"><strong>100%</strong><span>GOOD FOOD</span></div>
-          <div class="image-label"><small>FRESH PICK OF THE DAY</small><strong>그린 한 그릇, 좋은 하루</strong></div>
+      <img class="hero-image" src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&amp;fit=crop&amp;w=2200&amp;q=88" alt="자연의 색을 담은 신선한 샐러드와 건강한 한 끼">
+      <div class="hero-shade" aria-hidden="true"></div>
+      <div class="wrap hero-content">
+        <span class="kicker">Fresh food, better day</span>
+        <h1 class="hero-title"><span>Good food</span><span>Good mood</span></h1>
+        <div class="hero-bottom">
+          <p class="hero-copy">좋은 재료로 만든 한 끼가 오늘의 기분을 바꿉니다.<br>신선함을 가득 담은 그린테이블을 만나보세요.</p>
+          <a class="button-light" href="#best">오늘의 베스트 메뉴 <span aria-hidden="true">↘</span></a>
         </div>
       </div>
+      <span class="wrap hero-index">01 — FRESHNESS IN EVERY BITE</span>
     </section>
 
-    <div class="perks">
-      <div class="wrap perk-row">
-        <div class="perk"><span class="perk-icon">🌱</span><div><strong>매일 아침 손질</strong><span>산지에서 온 신선한 재료</span></div></div>
-        <div class="perk"><span class="perk-icon">🥣</span><div><strong>매장에서 직접 만들어요</strong><span>정성 가득 수제 드레싱</span></div></div>
-        <div class="perk"><span class="perk-icon">♻️</span><div><strong>조금 더 나은 선택</strong><span>환경을 생각하는 포장</span></div></div>
+    <div class="ticker" aria-label="좋은 재료, 신선한 하루">
+      <div class="ticker-track" aria-hidden="true">
+        <span>FRESH EVERY DAY</span><b>✳</b><span>GOOD FOOD, GOOD MOOD</span><b>✳</b><span>GROWN WITH CARE</span><b>✳</b>
+        <span>FRESH EVERY DAY</span><b>✳</b><span>GOOD FOOD, GOOD MOOD</span><b>✳</b><span>GROWN WITH CARE</span><b>✳</b>
       </div>
     </div>
 
+    <section class="best-section" id="best">
+      <div class="wrap">
+        <div class="section-top reveal">
+          <div>
+            <span class="kicker">A little green on your plate</span>
+            <h2 class="section-title">BEST MENU</h2>
+            <p class="section-subtitle">신선한 재료의 맛을 가장 잘 느낄 수 있는 그린테이블의 시그니처 메뉴.</p>
+          </div>
+          <div class="slider-controls" aria-label="베스트 메뉴 슬라이더 조작">
+            <button class="slider-button" id="slidePrev" type="button" aria-label="이전 메뉴">←</button>
+            <button class="slider-button" id="slideNext" type="button" aria-label="다음 메뉴">→</button>
+          </div>
+        </div>
+        <div class="best-track" id="bestTrack" aria-label="베스트 메뉴, 좌우로 스크롤 가능">
+          <article class="best-card">
+            <div class="best-photo"><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&amp;fit=crop&amp;w=950&amp;q=85" alt="아보카도와 제철 채소를 담은 그린 가든 샐러드" loading="lazy"><span class="best-number">01</span></div>
+            <div class="best-info"><div><h3>그린 가든 샐러드</h3><p>아보카도, 제철 채소, 레몬 드레싱</p></div><span class="best-price">₩10,900</span></div>
+          </article>
+          <article class="best-card">
+            <div class="best-photo"><img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&amp;fit=crop&amp;w=950&amp;q=85" alt="그릴드 치킨과 신선한 채소 샐러드" loading="lazy"><span class="best-number">02</span></div>
+            <div class="best-info"><div><h3>치킨 시저 샐러드</h3><p>그릴드 치킨, 로메인, 수제 시저 소스</p></div><span class="best-price">₩12,500</span></div>
+          </article>
+          <article class="best-card">
+            <div class="best-photo"><img src="https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38?auto=format&amp;fit=crop&amp;w=950&amp;q=85" alt="연어와 아보카도를 올린 포케 볼" loading="lazy"><span class="best-number">03</span></div>
+            <div class="best-info"><div><h3>연어 아보 포케</h3><p>신선한 연어, 아보카도, 현미와 간장 소스</p></div><span class="best-price">₩14,500</span></div>
+          </article>
+          <article class="best-card">
+            <div class="best-photo"><img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&amp;fit=crop&amp;w=950&amp;q=85" alt="구운 채소와 곡물을 담은 비건 볼" loading="lazy"><span class="best-number">04</span></div>
+            <div class="best-info"><div><h3>로스티드 비건 볼</h3><p>구운 제철 채소, 병아리콩, 타히니 소스</p></div><span class="best-price">₩11,900</span></div>
+          </article>
+        </div>
+        <p class="drag-note"><span aria-hidden="true">↔</span> 좌우 버튼 또는 드래그로 메뉴를 둘러보세요</p>
+      </div>
+    </section>
+
     <section class="menu-section" id="menu">
       <div class="wrap">
-        <div class="section-heading">
-          <div><span class="eyebrow">Our menu</span><h2>오늘의 그린 메뉴</h2></div>
-          <p>신선한 재료와 잘 어울리는 조합을 골라보세요. 매일 먹고 싶어지는 든든한 한 그릇.</p>
-        </div>
-        <div class="filters" role="group" aria-label="메뉴 카테고리">
-          <button class="filter-button active" type="button" data-filter="all">전체 메뉴</button>
-          <button class="filter-button" type="button" data-filter="salad">샐러드</button>
-          <button class="filter-button" type="button" data-filter="bowl">포케 &amp; 볼</button>
-          <button class="filter-button" type="button" data-filter="drink">음료</button>
+        <div class="section-top reveal">
+          <div>
+            <span class="kicker">Made fresh, made for you</span>
+            <h2 class="section-title">FRESH PICKS</h2>
+          </div>
+          <p class="section-subtitle">매일 먹고 싶은 다채로운 메뉴.<br>오늘의 입맛에 맞춰 골라보세요.</p>
         </div>
         <div class="menu-grid">
-          <article class="menu-card" data-category="salad">
-            <div class="food-photo">
-              <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="아보카도와 신선한 채소 샐러드" loading="lazy">
-              <span class="badge">BEST</span>
-            </div>
-            <div class="food-info">
-              <div class="food-title-row"><h3>그린 가든 샐러드</h3><strong>₩10,900</strong></div>
-              <p>아보카도, 계절 채소, 구운 견과류와 레몬 드레싱</p>
-              <button class="add-button" type="button" data-name="그린 가든 샐러드">+ 담기</button>
-            </div>
+          <article class="menu-card reveal">
+            <div class="menu-photo"><img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="토마토와 리코타 치즈 샐러드" loading="lazy"></div>
+            <div class="menu-info"><div><h3>토마토 리코타</h3><p>토마토, 리코타, 바질 오일</p><span class="menu-category">SALAD</span></div><span class="menu-price">₩11,500</span></div>
           </article>
-          <article class="menu-card" data-category="salad">
-            <div class="food-photo">
-              <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="구운 닭고기와 채소가 올라간 샐러드" loading="lazy">
-              <span class="badge">PROTEIN</span>
-            </div>
-            <div class="food-info">
-              <div class="food-title-row"><h3>치킨 시저 샐러드</h3><strong>₩12,500</strong></div>
-              <p>그릴드 치킨, 로메인, 파마산과 고소한 시저 소스</p>
-              <button class="add-button" type="button" data-name="치킨 시저 샐러드">+ 담기</button>
-            </div>
+          <article class="menu-card reveal">
+            <div class="menu-photo"><img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="곡물과 제철 채소로 만든 든든한 볼" loading="lazy"></div>
+            <div class="menu-info"><div><h3>에브리데이 곡물 볼</h3><p>현미, 퀴노아, 아삭한 채소</p><span class="menu-category">GRAIN BOWL</span></div><span class="menu-price">₩10,900</span></div>
           </article>
-          <article class="menu-card" data-category="bowl">
-            <div class="food-photo">
-              <img src="https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="연어와 채소를 곁들인 포케 볼" loading="lazy">
-              <span class="badge">SIGNATURE</span>
-            </div>
-            <div class="food-info">
-              <div class="food-title-row"><h3>연어 아보 포케</h3><strong>₩14,500</strong></div>
-              <p>신선한 연어, 아보카도, 현미밥과 산뜻한 간장 소스</p>
-              <button class="add-button" type="button" data-name="연어 아보 포케">+ 담기</button>
-            </div>
+          <article class="menu-card reveal">
+            <div class="menu-photo"><img src="https://images.unsplash.com/photo-1553530666-ba11a7da3888?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="케일과 사과를 갈아 만든 그린 주스" loading="lazy"></div>
+            <div class="menu-info"><div><h3>그린 밸런스 주스</h3><p>사과, 케일, 시금치 생과일 주스</p><span class="menu-category">DRINK</span></div><span class="menu-price">₩6,000</span></div>
           </article>
-          <article class="menu-card" data-category="bowl">
-            <div class="food-photo">
-              <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="구운 채소와 곡물이 담긴 비건 볼" loading="lazy">
-              <span class="badge">VEGAN</span>
-            </div>
-            <div class="food-info">
-              <div class="food-title-row"><h3>로스티드 비건 볼</h3><strong>₩11,900</strong></div>
-              <p>구운 제철 채소, 병아리콩, 퀴노아와 타히니 소스</p>
-              <button class="add-button" type="button" data-name="로스티드 비건 볼">+ 담기</button>
-            </div>
-          </article>
-          <article class="menu-card" data-category="salad">
-            <div class="food-photo">
-              <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="토마토와 신선한 채소를 담은 샐러드" loading="lazy">
-              <span class="badge">SEASONAL</span>
-            </div>
-            <div class="food-info">
-              <div class="food-title-row"><h3>토마토 리코타 샐러드</h3><strong>₩11,500</strong></div>
-              <p>잘 익은 토마토, 부드러운 리코타와 바질 오일</p>
-              <button class="add-button" type="button" data-name="토마토 리코타 샐러드">+ 담기</button>
-            </div>
-          </article>
-          <article class="menu-card" data-category="drink">
-            <div class="food-photo">
-              <img src="https://images.unsplash.com/photo-1553530666-ba11a7da3888?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="초록빛 신선한 그린 스무디" loading="lazy">
-              <span class="badge">FRESH</span>
-            </div>
-            <div class="food-info">
-              <div class="food-title-row"><h3>그린 밸런스 주스</h3><strong>₩6,000</strong></div>
-              <p>사과, 케일, 시금치를 갈아 만든 상큼한 생과일 주스</p>
-              <button class="add-button" type="button" data-name="그린 밸런스 주스">+ 담기</button>
-            </div>
-          </article>
-          <article class="menu-card" data-category="drink">
-            <div class="food-photo">
-              <img src="https://images.unsplash.com/photo-1513558161293-cda2ea0e5e4a?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="레몬과 허브를 넣은 상큼한 음료" loading="lazy">
-              <span class="badge">NO SUGAR</span>
-            </div>
-            <div class="food-info">
-              <div class="food-title-row"><h3>레몬 민트 워터</h3><strong>₩4,000</strong></div>
-              <p>레몬과 민트를 우려낸 가볍고 산뜻한 무가당 음료</p>
-              <button class="add-button" type="button" data-name="레몬 민트 워터">+ 담기</button>
-            </div>
-          </article>
-          <article class="menu-card" data-category="bowl">
-            <div class="food-photo">
-              <img src="https://images.unsplash.com/photo-1515003197210-e0cd7184f8b5?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="곡물과 채소를 균형 있게 담은 볼" loading="lazy">
-              <span class="badge">WHOLE GRAIN</span>
-            </div>
-            <div class="food-info">
-              <div class="food-title-row"><h3>에브리데이 곡물 볼</h3><strong>₩10,900</strong></div>
-              <p>현미와 퀴노아, 아삭한 채소를 담은 든든한 한 그릇</p>
-              <button class="add-button" type="button" data-name="에브리데이 곡물 볼">+ 담기</button>
-            </div>
+          <article class="menu-card reveal">
+            <div class="menu-photo"><img src="https://images.unsplash.com/photo-1553530666-ba11a7da3888?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="레몬과 민트를 넣은 상큼한 음료" loading="lazy"></div>
+            <div class="menu-info"><div><h3>레몬 민트 워터</h3><p>레몬과 민트를 우려낸 무가당 음료</p><span class="menu-category">DRINK</span></div><span class="menu-price">₩4,000</span></div>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="story" id="story">
-      <div class="wrap story-inner">
-        <div class="story-photo">
-          <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&amp;fit=crop&amp;w=1000&amp;q=80" alt="싱싱한 제철 채소가 진열된 시장" loading="lazy">
-        </div>
-        <div>
-          <span class="eyebrow">A little greener</span>
-          <h2>좋은 한 끼는<br>좋은 재료에서 시작돼요.</h2>
-          <p class="story-copy">그린테이블은 가까운 농가에서 온 제철 채소를 우선으로 사용합니다. 재료 본연의 맛을 살리고, 매일 먹어도 부담 없는 한 끼를 만들어요. 건강한 선택이 즐거운 습관이 되도록.</p>
-          <a class="text-link" href="#menu">우리 메뉴 만나보기&nbsp; →</a>
+    <section class="about-section" id="about">
+      <div class="wrap about-layout">
+        <div class="about-photo reveal"><img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="신선한 제철 채소가 가득한 시장" loading="lazy"></div>
+        <div class="about-copy reveal">
+          <span class="kicker">Rooted in freshness</span>
+          <h2 class="about-title"><span>GROWN</span><span>WITH</span><span>CARE.</span></h2>
+          <p class="about-text">건강한 한 끼는 좋은 재료를 알아보는 일에서 시작됩니다. 그린테이블은 제철의 신선함을 담고, 재료 본연의 맛을 살려 매일 즐길 수 있는 균형 잡힌 메뉴를 만듭니다.</p>
+          <p class="about-text">더 가볍고 기분 좋은 식사가 일상의 자연스러운 습관이 되도록, 한 접시마다 정성을 담습니다.</p>
+          <div class="about-points"><span>매일 손질하는 채소</span><span>직접 만드는 드레싱</span><span>계절을 담은 메뉴</span></div>
+          <a class="inline-link" href="#story">그린테이블의 이야기 <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>
 
-    <section class="newsletter" id="subscribe">
-      <div class="wrap newsletter-box">
-        <div>
-          <h2>초록빛 소식을 받아보세요</h2>
-          <p>새로운 메뉴와 작은 혜택을 가장 먼저 전해드릴게요.</p>
-          <div class="subscribe-message" id="subscribeMessage" aria-live="polite"></div>
+    <section class="story-section" id="story">
+      <img class="story-photo" src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&amp;fit=crop&amp;w=2200&amp;q=88" alt="자연의 빛이 드는 테이블 위 신선한 음식" loading="lazy">
+      <div class="story-shade" aria-hidden="true"></div>
+      <div class="wrap story-content reveal">
+        <span class="kicker">A fresh start, every day</span>
+        <h2 class="story-title">한 끼의 초록이<br>하루를 바꿉니다.</h2>
+        <p class="story-description">자연에서 온 신선한 재료와 균형 잡힌 맛으로, 오늘의 식탁에 건강한 여유를 더합니다.</p>
+        <a class="button-light" href="#menu">메뉴 둘러보기 <span aria-hidden="true">↘</span></a>
+      </div>
+    </section>
+
+    <section class="visit-section" id="stores">
+      <div class="wrap">
+        <div class="reveal">
+          <span class="kicker">Come say hello</span>
+          <h2 class="section-title" style="font-size:clamp(48px, 7vw, 88px);">FIND YOUR GREEN</h2>
+          <p class="section-subtitle">가까운 곳에서 싱그러운 한 끼를 만나보세요.</p>
         </div>
-        <form class="subscribe-form" id="subscribeForm">
-          <label for="emailInput" class="visually-hidden" style="position:absolute;clip:rect(0,0,0,0);">이메일 주소</label>
-          <input id="emailInput" type="email" placeholder="이메일 주소를 입력해 주세요" required>
-          <button type="submit">구독하기&nbsp; →</button>
-        </form>
+        <div class="visit-grid">
+          <article class="visit-card reveal">
+            <span class="visit-label">VISIT OUR STORE</span>
+            <h3>그린테이블 매장 안내</h3>
+            <p>매장 위치와 운영 시간은 전화로 문의해 주세요.<br>매일 10:00 – 20:00 · 재료 소진 시 조기 마감</p>
+            <a class="inline-link" href="tel:01012345678">매장에 전화하기 <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="visit-card dark reveal" id="franchise">
+            <span class="visit-label">GROW WITH US</span>
+            <h3>좋은 한 끼를 함께 만들어요</h3>
+            <p>그린테이블과 함께 건강한 식문화를 만들어갈<br>파트너를 기다립니다. 창업 문의를 남겨주세요.</p>
+            <a class="inline-link" href="tel:01012345678">전화로 창업 문의하기 <span aria-hidden="true">↗</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="wrap reveal">
+        <span class="kicker">We are here for you</span>
+        <h2>무엇이든 편하게 물어보세요.</h2>
+        <p>메뉴, 매장, 창업 관련 문의를 기다립니다.</p>
+        <div class="contact-links">
+          <a href="tel:01012345678">전화 문의&nbsp; ↗</a>
+          <a href="sms:01012345678">문자 문의&nbsp; ↗</a>
+          <a href="#stores">매장 정보 보기&nbsp; ↗</a>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="wrap footer-row">
-      <div>
-        <div class="footer-brand">✳ green table</div>
-        <div class="footer-info">서울시 초록구 싱그러운길 12 · 매일 10:00 - 20:00<br>사업자등록번호 123-45-67890</div>
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <div>
+          <a class="footer-brand" href="#home">✳ green table</a>
+          <div class="footer-company">신선한 한 끼로 채우는 기분 좋은 하루<br>운영시간 10:00 – 20:00 (재료 소진 시 조기 마감)</div>
+          <div class="policy-list">
+            <details><summary>이용약관</summary><p>그린테이블 홈페이지 이용에 관한 안내입니다. 실제 서비스 이용약관은 운영자에게 문의해 주세요.</p></details>
+            <details><summary>개인정보처리방침</summary><p>문의 정보는 답변을 위한 목적으로만 사용됩니다. 실제 개인정보처리방침은 운영자에게 문의해 주세요.</p></details>
+          </div>
+        </div>
+        <nav class="footer-nav" aria-label="푸터 메뉴">
+          <a href="#about">브랜드 소개</a>
+          <a href="#menu">메뉴</a>
+          <a href="#stores">매장 안내</a>
+          <a href="#franchise">창업 안내</a>
+          <a href="#contact">고객센터</a>
+          <a class="social-link" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+        </nav>
       </div>
-      <div class="footer-right">건강한 한 끼, 그린테이블<br>© 2025 GREEN TABLE. ALL RIGHTS RESERVED.</div>
+      <div class="footer-bottom">
+        <span class="operator">운영자 : 노지현, <a href="tel:01012345678">010-1234-5678</a></span>
+        <span>© 2025 GREEN TABLE. ALL RIGHTS RESERVED.</span>
+      </div>
     </div>
   </footer>
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script>
-    const filterButtons = document.querySelectorAll(".filter-button");
-    const menuCards = document.querySelectorAll(".menu-card");
-    const cartCount = document.getElementById("cartCount");
-    const toast = document.getElementById("toast");
     const menuToggle = document.getElementById("menuToggle");
     const navLinks = document.getElementById("navLinks");
-    let cartItems = 0;
-    let toastTimer;
-
-    filterButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        const category = button.dataset.filter;
-        filterButtons.forEach((item) => item.classList.toggle("active", item === button));
-        menuCards.forEach((card) => {
-          card.hidden = category !== "all" && card.dataset.category !== category;
-        });
-      });
-    });
-
-    document.querySelectorAll(".add-button").forEach((button) => {
-      button.addEventListener("click", () => {
-        cartItems += 1;
-        cartCount.textContent = cartItems;
-        document.querySelector(".cart-button").setAttribute("aria-label", `장바구니, ${cartItems}개`);
-        toast.textContent = `${button.dataset.name} 메뉴를 장바구니에 담았어요.`;
-        toast.classList.add("show");
-        window.clearTimeout(toastTimer);
-        toastTimer = window.setTimeout(() => toast.classList.remove("show"), 2400);
-      });
-    });
+    const bestTrack = document.getElementById("bestTrack");
+    const slidePrev = document.getElementById("slidePrev");
+    const slideNext = document.getElementById("slideNext");
 
     menuToggle.addEventListener("click", () => {
       const isOpen = navLinks.classList.toggle("open");
@@ -649,11 +669,60 @@
       });
     });
 
-    document.getElementById("subscribeForm").addEventListener("submit", (event) => {
-      event.preventDefault();
-      const email = document.getElementById("emailInput");
-      document.getElementById("subscribeMessage").textContent = `${email.value} 주소로 초록빛 소식을 보내드릴게요!`;
-      email.value = "";
+    const scrollMenu = (direction) => {
+      bestTrack.scrollBy({ left: direction * bestTrack.clientWidth * 0.78, behavior: "smooth" });
+    };
+    slidePrev.addEventListener("click", () => scrollMenu(-1));
+    slideNext.addEventListener("click", () => scrollMenu(1));
+
+    let isDragging = false;
+    let dragStartX = 0;
+    let dragScrollLeft = 0;
+    bestTrack.addEventListener("pointerdown", (event) => {
+      if (event.pointerType === "touch") return;
+      isDragging = true;
+      dragStartX = event.clientX;
+      dragScrollLeft = bestTrack.scrollLeft;
+      bestTrack.classList.add("dragging");
+      bestTrack.setPointerCapture(event.pointerId);
+    });
+    bestTrack.addEventListener("pointermove", (event) => {
+      if (!isDragging) return;
+      bestTrack.scrollLeft = dragScrollLeft - (event.clientX - dragStartX);
+    });
+    const stopDragging = () => {
+      isDragging = false;
+      bestTrack.classList.remove("dragging");
+    };
+    bestTrack.addEventListener("pointerup", stopDragging);
+    bestTrack.addEventListener("pointercancel", stopDragging);
+    bestTrack.addEventListener("lostpointercapture", stopDragging);
+
+    if ("IntersectionObserver" in window) {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll(".reveal").forEach((element) => revealObserver.observe(element));
+
+      const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          document.querySelectorAll(".nav-links a").forEach((link) => {
+            link.classList.toggle("active", link.hash === `#${entry.target.id}`);
+          });
+        });
+      }, { rootMargin: "-30% 0px -60% 0px" });
+      document.querySelectorAll("#about, #menu, #stores, #franchise, #contact").forEach((section) => sectionObserver.observe(section));
+    } else {
+      document.querySelectorAll(".reveal").forEach((element) => element.classList.add("visible"));
+    }
+
+    document.querySelectorAll("img").forEach((image) => {
+      image.addEventListener("error", () => { image.style.visibility = "hidden"; }, { once: true });
     });
   </script>
 </body>
