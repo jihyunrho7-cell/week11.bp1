@@ -301,8 +301,70 @@
     .about-title span { display: block; }
     .about-text { max-width: 390px; color: #606760; font-size: 13px; line-height: 2; word-break: keep-all; }
     .about-points { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 27px; }
-    .about-points span { padding: 9px 12px; color: var(--green); border: 1px solid var(--line); border-radius: 99px; font-size: 10px; font-weight: 600; }
+    .about-point {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 10px 13px;
+      color: var(--green);
+      background: transparent;
+      border: 1px solid var(--line);
+      border-radius: 99px;
+      font-size: 10px;
+      font-weight: 600;
+      transition: color .2s, background .2s, border-color .2s;
+    }
+    .about-point:hover, .about-point:focus-visible { color: var(--ivory); background: var(--green); border-color: var(--green); }
+    .about-point span { font-size: 12px; transition: transform .2s; }
+    .about-point:hover span, .about-point:focus-visible span { transform: translate(2px, -2px); }
     .inline-link { display: inline-flex; align-items: center; gap: 15px; margin-top: 30px; padding-bottom: 8px; color: var(--green); border-bottom: 1px solid var(--green); font-size: 11px; font-weight: 700; }
+
+    .info-dialog {
+      width: min(760px, calc(100% - 32px));
+      max-width: none;
+      max-height: min(84vh, 760px);
+      padding: 0;
+      color: var(--black);
+      background: var(--ivory);
+      border: 0;
+      box-shadow: 0 24px 90px rgba(0, 0, 0, .24);
+    }
+    .info-dialog[open] { animation: dialog-in .22s ease-out both; }
+    .info-dialog::backdrop { background: rgba(11, 34, 25, .66); backdrop-filter: blur(4px); }
+    @keyframes dialog-in { from { opacity: 0; transform: translateY(12px) scale(.99); } to { opacity: 1; transform: translateY(0) scale(1); } }
+    .dialog-shell { position: relative; max-height: min(84vh, 760px); overflow-y: auto; padding: clamp(27px, 5vw, 56px); }
+    .dialog-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      color: var(--green);
+      background: transparent;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      font-size: 20px;
+    }
+    .dialog-close:hover { color: var(--ivory); background: var(--green); }
+    .dialog-heading { padding-right: 35px; }
+    .dialog-kicker { color: var(--green); font-size: 10px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; }
+    .dialog-title { margin: 12px 0 10px; color: var(--green); font-size: clamp(30px, 5vw, 48px); letter-spacing: -.08em; }
+    .dialog-intro { max-width: 560px; margin: 0; color: var(--gray); font-size: 12px; line-height: 1.9; word-break: keep-all; }
+    .dialog-content { margin-top: 28px; }
+    .info-columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .info-group { padding: 19px; background: var(--green-light); }
+    .info-group h3 { margin: 0 0 12px; color: var(--green); font-size: 14px; letter-spacing: -.04em; }
+    .info-group ul { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+    .info-group li { color: #536057; font-size: 11px; line-height: 1.65; word-break: keep-all; }
+    .info-group li strong { color: var(--green); font-weight: 700; }
+    .season-menu-list { display: grid; gap: 10px; }
+    .season-menu-item { padding: 17px 19px; border: 1px solid var(--line); }
+    .season-menu-item h3 { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin: 0 0 7px; color: var(--green); font-size: 14px; }
+    .season-menu-item h3 span { color: #788078; font-size: 9px; font-weight: 600; letter-spacing: .08em; }
+    .season-menu-item p { margin: 0; color: #59635a; font-size: 11px; line-height: 1.75; word-break: keep-all; }
+    .season-note { margin: 16px 0 0; color: #788078; font-size: 10px; line-height: 1.7; word-break: keep-all; }
 
     .story-section {
       position: relative;
@@ -433,6 +495,10 @@
       .about-copy { padding: 0; }
       .about-title { font-size: clamp(56px, 14vw, 85px); }
       .about-text { font-size: 12px; }
+      .info-columns { grid-template-columns: 1fr; }
+      .dialog-shell { padding: 27px 20px; }
+      .dialog-close { top: 14px; right: 14px; width: 36px; height: 36px; }
+      .season-menu-item { padding: 15px; }
       .story-section { min-height: 550px; }
       .story-photo { object-position: 57% center; }
       .story-content { padding: 75px 0; }
@@ -564,7 +630,11 @@
           <h2 class="about-title"><span>GROWN</span><span>WITH</span><span>CARE.</span></h2>
           <p class="about-text">건강한 한 끼는 좋은 재료를 알아보는 일에서 시작됩니다. 그린테이블은 제철의 신선함을 담고, 재료 본연의 맛을 살려 매일 즐길 수 있는 균형 잡힌 메뉴를 만듭니다.</p>
           <p class="about-text">더 가볍고 기분 좋은 식사가 일상의 자연스러운 습관이 되도록, 한 접시마다 정성을 담습니다.</p>
-          <div class="about-points"><span>매일 손질하는 채소</span><span>직접 만드는 드레싱</span><span>계절을 담은 메뉴</span></div>
+          <div class="about-points" aria-label="그린테이블의 재료와 메뉴">
+            <button class="about-point" type="button" data-info="vegetables" aria-haspopup="dialog" aria-controls="infoDialog">매일 손질하는 채소 <span aria-hidden="true">↗</span></button>
+            <button class="about-point" type="button" data-info="dressings" aria-haspopup="dialog" aria-controls="infoDialog">직접 만드는 드레싱 <span aria-hidden="true">↗</span></button>
+            <button class="about-point" type="button" data-info="winter" aria-haspopup="dialog" aria-controls="infoDialog">계절을 담은 메뉴 <span aria-hidden="true">↗</span></button>
+          </div>
           <a class="inline-link" href="#story">그린테이블의 이야기 <span aria-hidden="true">↗</span></a>
         </div>
       </div>
@@ -646,12 +716,173 @@
     </div>
   </footer>
 
+  <dialog class="info-dialog" id="infoDialog" aria-labelledby="dialogTitle" aria-describedby="dialogIntro">
+    <div class="dialog-shell">
+      <button class="dialog-close" id="closeInfoDialog" type="button" aria-label="창 닫기" autofocus>×</button>
+      <div class="dialog-heading">
+        <span class="dialog-kicker" id="dialogKicker"></span>
+        <h2 class="dialog-title" id="dialogTitle"></h2>
+        <p class="dialog-intro" id="dialogIntro"></p>
+      </div>
+      <div class="dialog-content" id="dialogContent"></div>
+    </div>
+  </dialog>
+
+  <template id="vegetablesTemplate">
+    <div class="info-columns">
+      <section class="info-group">
+        <h3>잎채소</h3>
+        <ul>
+          <li><strong>로메인·양상추</strong> — 샐러드의 산뜻한 베이스</li>
+          <li><strong>어린잎·루꼴라</strong> — 부드러운 식감과 향긋함</li>
+          <li><strong>케일</strong> — 곡물 볼과 잘 어울리는 진한 잎채소</li>
+          <li><strong>시금치·봄동</strong> — 겨울 샐러드와 페스토에 활용</li>
+        </ul>
+      </section>
+      <section class="info-group">
+        <h3>뿌리채소</h3>
+        <ul>
+          <li><strong>고구마</strong> — 구운 큐브 토핑</li>
+          <li><strong>단호박</strong> — 구운 단호박·리코타 샐러드</li>
+          <li><strong>비트</strong> — 구운 비트·비트 후무스</li>
+          <li><strong>연근</strong> — 구이 또는 바삭한 칩</li>
+          <li><strong>당근·우엉</strong> — 당근 라페·우엉 크런치</li>
+        </ul>
+      </section>
+      <section class="info-group">
+        <h3>겨울 제철 채소</h3>
+        <ul>
+          <li><strong>배추·무</strong> — 구운 알배추·무 피클</li>
+          <li><strong>콜리플라워</strong> — 노릇하게 구워 고소하게</li>
+          <li><strong>방울양배추</strong> — 구워 사과·호두와 함께</li>
+          <li><strong>봄동</strong> — 겉절이 스타일의 산뜻한 샐러드</li>
+        </ul>
+      </section>
+      <section class="info-group">
+        <h3>매일 준비해요</h3>
+        <ul>
+          <li>재료를 깨끗이 씻고 메뉴에 맞게 손질합니다.</li>
+          <li>생으로 즐기는 채소와 따뜻하게 구운 채소를 함께 준비합니다.</li>
+          <li>재료는 계절과 수급 상황에 따라 달라질 수 있습니다.</li>
+        </ul>
+      </section>
+    </div>
+  </template>
+
+  <template id="dressingsTemplate">
+    <div class="info-columns">
+      <section class="info-group">
+        <h3>산뜻한 드레싱</h3>
+        <ul>
+          <li><strong>레몬 허브</strong> — 레몬과 허브의 산뜻한 풍미</li>
+          <li><strong>유자 시트러스</strong> — 유자와 감귤류의 상큼한 향</li>
+          <li><strong>발사믹</strong> — 구운 채소와 딸기에 잘 어울리는 새콤달콤함</li>
+        </ul>
+      </section>
+      <section class="info-group">
+        <h3>고소한 드레싱</h3>
+        <ul>
+          <li><strong>시저</strong> — 파마산과 마늘의 진한 감칠맛</li>
+          <li><strong>타히니 참깨</strong> — 고소하고 부드러워 비건 볼과 잘 어울려요</li>
+          <li><strong>잣 드레싱</strong> — 겨울 채소에 풍미를 더하는 고소한 맛</li>
+        </ul>
+      </section>
+    </div>
+    <p class="season-note">드레싱은 매장에서 직접 준비하며, 메뉴와 재료 수급에 따라 제공 종류가 달라질 수 있어요.</p>
+  </template>
+
+  <template id="winterTemplate">
+    <div class="season-menu-list">
+      <article class="season-menu-item">
+        <h3>윈터 로스트 샐러드 <span>WARM &amp; COMFORTING</span></h3>
+        <p>단호박, 고구마, 비트, 리코타에 발사믹 드레싱을 곁들인 따뜻하고 든든한 한 그릇.</p>
+      </article>
+      <article class="season-menu-item">
+        <h3>스트로베리 부라타 샐러드 <span>WINTER LIMITED</span></h3>
+        <p>제철 딸기와 부라타 치즈, 루꼴라를 담고 발사믹으로 마무리한 겨울 한정 메뉴.</p>
+      </article>
+      <article class="season-menu-item">
+        <h3>브뤼셀 스프라우트 샐러드 <span>ROASTED &amp; CRUNCHY</span></h3>
+        <p>구운 방울양배추와 사과, 호두, 파마산을 조합해 식감을 살린 샐러드.</p>
+      </article>
+      <article class="season-menu-item">
+        <h3>시트러스 윈터 샐러드 <span>FRESH &amp; CITRUS</span></h3>
+        <p>한라봉, 오렌지, 펜넬, 어린잎에 시트러스 드레싱을 더해 산뜻하게 즐겨요.</p>
+      </article>
+      <article class="season-menu-item">
+        <h3>체스트넛 케일 샐러드 <span>RICH &amp; NUTTY</span></h3>
+        <p>구운 밤과 케일, 버섯, 염소치즈에 발사믹을 곁들인 고소하고 깊은 풍미.</p>
+      </article>
+    </div>
+    <div class="info-columns" style="margin-top:12px;">
+      <section class="info-group">
+        <h3>겨울 뿌리채소</h3>
+        <ul><li>고구마 · 단호박 · 비트</li><li>연근 · 당근 · 우엉</li></ul>
+      </section>
+      <section class="info-group">
+        <h3>겨울 채소와 과일</h3>
+        <ul><li>시금치 · 봄동 · 배추 · 무</li><li>콜리플라워 · 방울양배추</li><li>귤 · 딸기 · 사과 · 배 · 한라봉 · 유자</li></ul>
+      </section>
+      <section class="info-group">
+        <h3>견과와 토핑</h3>
+        <ul><li>밤 · 호두 · 은행 · 잣</li><li>크랜베리 · 무화과 잼</li></ul>
+      </section>
+      <section class="info-group">
+        <h3>겨울 추천 재료 TOP 7</h3>
+        <ul><li>딸기 · 단호박 · 밤 · 한라봉</li><li>연근 · 봄동 · 구운 알배추</li></ul>
+      </section>
+    </div>
+    <p class="season-note">제철 메뉴는 계절과 재료 수급에 따라 바뀔 수 있습니다. 따뜻한 구운 채소를 더해 겨울에도 든든하게 즐겨보세요.</p>
+  </template>
+
   <script>
     const menuToggle = document.getElementById("menuToggle");
     const navLinks = document.getElementById("navLinks");
     const bestTrack = document.getElementById("bestTrack");
     const slidePrev = document.getElementById("slidePrev");
     const slideNext = document.getElementById("slideNext");
+    const infoDialog = document.getElementById("infoDialog");
+    const dialogKicker = document.getElementById("dialogKicker");
+    const dialogTitle = document.getElementById("dialogTitle");
+    const dialogIntro = document.getElementById("dialogIntro");
+    const dialogContent = document.getElementById("dialogContent");
+    const infoEntries = {
+      vegetables: {
+        kicker: "Freshly prepared",
+        title: "매일 손질하는 채소",
+        intro: "잎채소부터 겨울 뿌리채소까지, 샐러드와 따뜻한 메뉴에 어울리는 재료를 준비합니다.",
+        template: "vegetablesTemplate"
+      },
+      dressings: {
+        kicker: "Made in our kitchen",
+        title: "직접 만드는 드레싱",
+        intro: "재료의 맛을 살려주는 산뜻한 드레싱과 고소한 드레싱을 메뉴에 맞춰 준비해요.",
+        template: "dressingsTemplate"
+      },
+      winter: {
+        kicker: "Seasonal menu · Winter",
+        title: "계절을 담은 겨울 메뉴",
+        intro: "딸기와 한라봉, 구운 뿌리채소처럼 겨울에 더욱 맛있는 재료로 따뜻하고 다채로운 샐러드를 제안합니다.",
+        template: "winterTemplate"
+      }
+    };
+
+    document.querySelectorAll(".about-point").forEach((button) => {
+      button.addEventListener("click", () => {
+        const entry = infoEntries[button.dataset.info];
+        const template = document.getElementById(entry.template);
+        dialogKicker.textContent = entry.kicker;
+        dialogTitle.textContent = entry.title;
+        dialogIntro.textContent = entry.intro;
+        dialogContent.replaceChildren(template.content.cloneNode(true));
+        infoDialog.showModal();
+      });
+    });
+
+    document.getElementById("closeInfoDialog").addEventListener("click", () => infoDialog.close());
+    infoDialog.addEventListener("click", (event) => {
+      if (event.target === infoDialog) infoDialog.close();
+    });
 
     menuToggle.addEventListener("click", () => {
       const isOpen = navLinks.classList.toggle("open");
